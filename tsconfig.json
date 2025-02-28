@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["es6", "dom"],
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@designtokens/*": ["src/designtokens/*"],
+      "@commonui/*": ["src/commonui/*"]
+    }
+  },
+  "exclude": ["node_modules", "./src/**/tests"],
+  "include": ["src", "types", "declarations.d.ts"]
+}
