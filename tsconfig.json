@@ -16,12 +16,12 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@designtokens/*": ["src/designtokens/*"],
-      "@commonui/*": ["src/commonui/*"]
+      "@/*": ["*"],
+      "@components/*": ["components/*"],
+      "@designtokens/*": ["designtokens/*"],
+      "@commonui/*": ["commonui/*"]
     }
   },
   "exclude": ["node_modules", "./src/**/tests"],

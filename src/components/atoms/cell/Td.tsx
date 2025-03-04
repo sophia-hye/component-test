@@ -7,12 +7,12 @@ export type TdKeyType = keyof Pick<
   'invalid' | 'positive' | 'homo' | 'het' | 'normal'
 >;
 
-interface ITd {
+interface TdProps {
   tdKey: TdKeyType;
   alignLeft?: boolean;
 }
 
-const Td = styled.td<ITd>`
+const Td = styled.td<TdProps>`
   text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'center')};
   ${({ tdKey }) => {
     const textColor = tdKey === 'positive' ? sysColor.white : undefined;

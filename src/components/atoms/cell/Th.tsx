@@ -6,14 +6,14 @@ import { sysNumber } from '@designtokens/systems/sysNumber';
 
 export type ThKeyType = keyof typeof sysString.table;
 
-interface ITh {
+interface ThProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
   thKey?: ThKeyType;
   alignLeft?: boolean;
   channelIndex?: ChannelNumberType;
   needVibrantColor: boolean;
 }
 
-const Th = styled.th<ITh>`
+const Th = styled.th<ThProps>`
   text-transform: capitalize;
   text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'center')};
 

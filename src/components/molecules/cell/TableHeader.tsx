@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { sysNumber } from '@designtokens/systems/sysNumber';
 import Th, { ThKeyType } from '@components/atoms/cell/Th';
 import Checkbox from '@/commonui/Checkbox';
@@ -24,70 +23,56 @@ export interface TableHeaderProps {
 export default function TableHeader(props: TableHeaderProps) {
   const { rowSpan, colSpan } = props;
 
-  const headerContent = () => {
-    const { content } = props;
-
-    if (content === 'checkbox') {
-      const isChecked: boolean = props.checked === true;
-      return (
-        <Checkbox
-          status="checked"
-          onChange={() => {
-            return null;
-          }}
-        />
-      );
-    }
-    if (content === 'colorbar') {
-      const chIdx: ChannelNumberType = props.channelIndex ?? 1;
-      return <Colorbar channelIndex={chIdx} />;
-    }
-    if (content === 'header1') {
-      const text = props.thKey ? sysString.table[props.thKey] : '';
-      return <CellH1 text={text} />;
-    }
-    if (content === 'header2') {
-      const text = props.text ?? '';
-      return <CellH2 text={text} />;
-    }
-
-    return null;
-  };
-
   return (
     <Th
-      rowSpan={rowSpan}
-      colSpan={colSpan}
       thKey={props.thKey}
       alignLeft={props.alignLeft}
       channelIndex={props.channelIndex}
       needVibrantColor={props.content === 'colorbar'}
+      rowSpan={rowSpan}
+      colSpan={colSpan}
     >
-      <Styled.Container className={props.content}>
-        {headerContent()}
-      </Styled.Container>
+      <div style={additionalStyle(props.content)}>
+        {headerContent({ ...props })}
+      </div>
     </Th>
   );
 }
 
-const Styled = {
-  Container: styled.div`
-    .checkbox {
-      padding: ${sysNumber.table.padding.default};
-    }
+const headerContent = (props: TableHeaderProps) => {
+  const { content } = props;
 
-    .colorbar {
-      height: 8px;
-      padding: ${sysNumber.table.padding.default};
-    }
+  if (content === 'checkbox') {
+    const isChecked: boolean = props.checked === true;
+    return (
+      <Checkbox
+        status="checked"
+        onChange={() => {
+          return null;
+        }}
+      />
+    );
+  }
+  if (content === 'colorbar') {
+    const chIdx: ChannelNumberType = props.channelIndex ?? 1;
+    return <Colorbar channelIndex={chIdx} />;
+  }
+  if (content === 'header1') {
+    const text = props.thKey ? sysString.table[props.thKey] : '';
+    return <CellH1 text={text} />;
+  }
+  if (content === 'header2') {
+    const text = props.text ?? '';
+    return <CellH2 text={text} />;
+  }
 
-    .header1 {
-      padding: ${sysNumber.table.padding.default};
-    }
-
-    .header2 {
-      padding: ${() =>
-        `${sysNumber.table.padding.small} ${sysNumber.table.padding.default}`};
-    }
-  `,
+  return <></>;
 };
+
+const additionalStyle = (content: HeaderContentType) => ({
+  padding:
+    content === 'header2'
+      ? `${sysNumber.table.padding.small} ${sysNumber.table.padding.default}`
+      : sysNumber.table.padding.default,
+  height: content === 'colorbar' ? '8px' : 'auto',
+});

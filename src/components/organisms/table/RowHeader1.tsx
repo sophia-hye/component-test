@@ -1,6 +1,6 @@
 import React from 'react';
-import Tr from 'src/components/atoms/cell/Tr';
-import TableHeader from 'src/components/molecules/cell/TableHeader';
+import Tr from '@components/atoms/cell/Tr';
+import TableHeader from '@components/molecules/cell/TableHeader';
 import data from './TestData';
 
 interface RowHeader1Props {
