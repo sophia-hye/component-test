@@ -1,23 +1,23 @@
 import React from 'react';
-import { ReactComponent as AlertIcon } from '../assets/alert.svg';
-import { ReactComponent as BackwardIcon } from '../assets/backward.svg';
-import { ReactComponent as CheckedIcon } from '../assets/checked.svg';
-import { ReactComponent as CloseIcon } from '../assets/close.svg';
-import { ReactComponent as DownIcon } from '../assets/down.svg';
-import { ReactComponent as ExportIcon } from '../assets/export.svg';
-import { ReactComponent as ForwardIcon } from '../assets/forward.svg';
-import { ReactComponent as IndeterminateIcon } from '../assets/indeterminate.svg';
-import { ReactComponent as InfoIcon } from '../assets/info.svg';
-import { ReactComponent as IntergrationIcon } from '../assets/intergration.svg';
-import { ReactComponent as MaximizeIcon } from '../assets/maximize.svg';
-import { ReactComponent as MinimizeIcon } from '../assets/minimize.svg';
-import { ReactComponent as OpenIcon } from '../assets/open.svg';
-import { ReactComponent as PrintIcon } from '../assets/print.svg';
-import { ReactComponent as SaveIcon } from '../assets/save.svg';
-import { ReactComponent as SendIcon } from '../assets/send.svg';
-import { ReactComponent as UncheckedIcon } from '../assets/unchecked.svg';
-import { ReactComponent as UpIcon } from '../assets/up.svg';
-import { ReactComponent as ValidIcon } from '../assets/valid.svg';
+import { ReactComponent as AlertIcon } from '@/assets/alert.svg';
+import { ReactComponent as BackwardIcon } from '@/assets/backwardTab.svg';
+import { ReactComponent as CheckedIcon } from '@/assets/checked.svg';
+import { ReactComponent as CloseIcon } from '@/assets/close.svg';
+import { ReactComponent as DownIcon } from '@/assets/down.svg';
+import { ReactComponent as ExportIcon } from '@/assets/export.svg';
+import { ReactComponent as ForwardIcon } from '@/assets/forwardTab.svg';
+import { ReactComponent as IndeterminateIcon } from '@/assets/indeterminate.svg';
+import { ReactComponent as InfoIcon } from '@/assets/info.svg';
+import { ReactComponent as IntergrationIcon } from '@/assets/intergration.svg';
+import { ReactComponent as MaximizeIcon } from '@/assets/maximize.svg';
+import { ReactComponent as MinimizeIcon } from '@/assets/minimize.svg';
+import { ReactComponent as OpenIcon } from '@/assets/open.svg';
+import { ReactComponent as PrintIcon } from '@/assets/print.svg';
+import { ReactComponent as SaveIcon } from '@/assets/save.svg';
+import { ReactComponent as SendIcon } from '@/assets/send.svg';
+import { ReactComponent as UncheckedIcon } from '@/assets/unchecked.svg';
+import { ReactComponent as UpIcon } from '@/assets/up.svg';
+import { ReactComponent as ValidIcon } from '@/assets/valid.svg';
 
 const IconComponents = {
   alert: AlertIcon,
@@ -51,7 +51,6 @@ export default IconComponents;
 //   close: React.lazy(() => import('../assets/close.svg').then((module) => ({ default: module.ReactComponent }))),
 //   down: React.lazy(() => import('../assets/down.svg').then((module) => ({ default: module.ReactComponent }))),
 //   export: React.lazy(() => import('../assets/export.svg').then((module) => ({ default: module.ReactComponent }))),
-//   forward: React.lazy(() => import('../assets/forward.svg').then((module) => ({ default: module.ReactComponent }))),
 //   indeterminate: React.lazy(() => import('../assets/indeterminate.svg').then((module) => ({ default: module.ReactComponent }))),
 //   info: React.lazy(() => import('../assets/info.svg').then((module) => ({ default: module.ReactComponent }))),
 //   intergration: React.lazy(() => import('../assets/intergration.svg').then((module) => ({ default: module.ReactComponent }))),

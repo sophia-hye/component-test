@@ -1,7 +1,7 @@
 import React from 'react';
 import Tr from '@components/atoms/cell/Tr';
 import TableCell from '@components/molecules/cell/TableCell';
-import cellData from './CellData';
+import cellData from './testdata/CellData';
 
 export default function RowCell() {
   const meltPositives = ['+', '++', '+++'];

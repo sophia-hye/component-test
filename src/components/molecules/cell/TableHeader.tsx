@@ -58,8 +58,8 @@ const headerContent = (props: TableHeaderProps) => {
     return <Colorbar channelIndex={chIdx} />;
   }
   if (content === 'header1') {
-    const text = props.thKey ? sysString.table[props.thKey] : '';
-    return <CellH1 text={text} />;
+    const defaultText = props.thKey ? sysString.table[props.thKey] : '';
+    return <CellH1 text={props.text ?? defaultText} />;
   }
   if (content === 'header2') {
     const text = props.text ?? '';

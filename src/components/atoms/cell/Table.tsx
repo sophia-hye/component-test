@@ -12,6 +12,10 @@ const Table = styled.table`
   border-collapse: collapse;
   border-radius: ${sysNumber.table.radius.default};
   border: 1px solid ${tableCell.line};
+
+  td, th {
+    border: 1px solid ${tableCell.line};
+  }
 `;
 
 export default Table;

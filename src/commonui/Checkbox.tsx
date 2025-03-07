@@ -43,14 +43,12 @@ export default function Checkbox({ status, onChange }: CheckboxProps) {
 }
 
 const Styled = {
-  Container: styled.div`
-    display: flex;
+  Container: styled.div<{ onClick: () => void }>`
+    display: inline-flex;
     align-items: center;
     cursor: pointer;
   `,
-  Input: styled.input`
-    &[type='checkbox'] {
-      display: none;
-    }
+  Input: styled.input.attrs({ type: 'checkbox' })<{ checked: boolean }>`
+    display: none;
   `,
 };
