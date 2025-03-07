@@ -4,16 +4,19 @@ import TableHeader from '@components/molecules/cell/TableHeader';
 import TableHeaderType from '../header.type';
 
 interface THeaderGeneProps {
-  targetInfos: TableHeaderType.TargetInfo[];
+  thromboHeaders: TableHeaderType.ThromboHeader[];
   geneNames: string[];
 }
 
 export default function THeaderGene({
-  targetInfos,
+  thromboHeaders,
   geneNames,
 }: THeaderGeneProps) {
+  const channelSet = new Set();
+
   return (
     <Tr>
+      {/* Result Column */}
       <TableHeader content="header2" text="C(t)" rowSpan={2} />
       {geneNames.map(geneName => (
         <TableHeader
@@ -22,15 +25,28 @@ export default function THeaderGene({
           text={geneName}
         />
       ))}
-
-      {targetInfos.map(info => (
-        <TableHeader
-          key={`table-header-target-${info.targetName}`}
-          content="header2"
-          channelIndex={info.channelIndex}
-          text={info.targetName}
-        />
-      ))}
+      {/* Channel Columns */}
+      {thromboHeaders.map(info => {
+        if (info.geneName === 'C(t)') {
+          return (
+            <TableHeader
+              key={`table-header-target-${info.geneName}`}
+              content="header2"
+              channelIndex={info.channelIndex}
+              text={info.geneName}
+              rowSpan={2}
+            />
+          );
+        }
+        return (
+          <TableHeader
+            key={`table-header-target-${info.geneName}`}
+            content="header2"
+            channelIndex={info.channelIndex}
+            text={info.geneName}
+          />
+        );
+      })}
     </Tr>
   );
 }

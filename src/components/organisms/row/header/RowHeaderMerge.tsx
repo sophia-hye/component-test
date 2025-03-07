@@ -5,12 +5,12 @@ import TableHeaderType from '../header.type';
 
 interface RowHeaderMergeProps {
   useCheckbox: boolean;
-  channelInfos: TableHeaderType.ChannelInfo[];
+  channelHeaders: TableHeaderType.ChannelHeader[];
 }
 
 export default function RowHeaderMerge({
   useCheckbox,
-  channelInfos,
+  channelHeaders,
 }: RowHeaderMergeProps) {
   const rowSpan = 2;
   return (
@@ -18,9 +18,9 @@ export default function RowHeaderMerge({
       <HeaderBase
         rowSpan={rowSpan}
         useCheckbox={useCheckbox}
-        channelInfos={channelInfos}
+        channelHeaders={channelHeaders}
       />
-      <HeaderChannel channelInfos={channelInfos} />
+      <HeaderChannel channelHeaders={channelHeaders} />
     </>
   );
 }

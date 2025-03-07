@@ -7,29 +7,37 @@ import TableHeaderType from '../header.type';
 
 interface RowHeaderThrombosisProps {
   useCheckbox: boolean;
-  channelInfos: TableHeaderType.ChannelInfo[];
-  targetInfos: TableHeaderType.TargetInfo[];
-  geneNames: string[];
-  targetNames: string[];
+  channelHeaders: TableHeaderType.ChannelHeader[];
+  thromboHeaders: TableHeaderType.ThromboHeader[];
+  thromboResultHeaders: TableHeaderType.Thrombo[];
 }
 
 export default function RowHeaderThrombosis({
   useCheckbox,
-  channelInfos,
-  targetInfos,
-  geneNames,
-  targetNames,
+  channelHeaders,
+  thromboHeaders,
+  thromboResultHeaders,
 }: RowHeaderThrombosisProps) {
+  const geneNames: string[] = thromboResultHeaders
+    ? thromboResultHeaders.map(info => info.geneName)
+    : [];
+  const targetNames: string[] = thromboResultHeaders
+    ? thromboResultHeaders.map(info => info.targetName)
+    : [];
+
   return (
     <>
       <THeaderBase
         rowSpan={4}
         useCheckbox={useCheckbox}
-        channelInfos={channelInfos}
+        channelHeaders={channelHeaders}
       />
-      <THeaderChannel channelInfos={channelInfos} />
-      <THeaderGene targetInfos={targetInfos} geneNames={geneNames} />
-      <THeaderTarget targetInfos={targetInfos} targetNames={targetNames} />
+      <THeaderChannel channelHeaders={channelHeaders} />
+      <THeaderGene thromboHeaders={thromboHeaders} geneNames={geneNames} />
+      <THeaderTarget
+        thromboHeaders={thromboHeaders}
+        targetNames={targetNames}
+      />
     </>
   );
 }

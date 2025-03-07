@@ -7,29 +7,29 @@ import TableHeaderType from '../header.type';
 
 interface RowHeaderBasicProps {
   useCheckbox: boolean;
-  channelInfos: TableHeaderType.ChannelInfo[];
-  targetInfos: TableHeaderType.TargetInfo[];
+  channelHeaders: TableHeaderType.ChannelHeader[];
+  targetHeaders: TableHeaderType.TargetHeader[];
 }
 
 export default function RowHeaderBasic({
   useCheckbox,
-  channelInfos,
-  targetInfos,
+  channelHeaders,
+  targetHeaders,
 }: RowHeaderBasicProps) {
   const useTargetUnit: boolean =
-    targetInfos.map(info => info.targetUnit).length > 0;
-  const rowSpan = useTargetUnit ? 3 : 4;
+    targetHeaders.map(info => info.targetUnit).length > 0;
+  const rowSpan = useTargetUnit ? 4 : 3;
 
   return (
     <>
       <HeaderBase
         rowSpan={rowSpan}
         useCheckbox={useCheckbox}
-        channelInfos={channelInfos}
+        channelHeaders={channelHeaders}
       />
-      <HeaderChannel channelInfos={channelInfos} />
-      <HeaderTarget targetInfos={targetInfos} />
-      <HeaderUnit targetInfos={targetInfos} />
+      <HeaderChannel channelHeaders={channelHeaders} />
+      <HeaderTarget targetHeaders={targetHeaders} />
+      <HeaderUnit targetHeaders={targetHeaders} />
     </>
   );
 }

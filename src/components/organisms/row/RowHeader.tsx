@@ -7,57 +7,68 @@ import RowHeaderThrombosis from './headerthrombosis/RowHeaderThrombosis';
 interface RowHeaderProps {
   tableType: 'basic' | 'thrombosis' | 'merge';
   useCheckbox: boolean;
-  HeaderInfos: TableHeaderType.TableHeader[];
-  ResultInfos?: TableHeaderType.ResultInfo[];
+  headerInfos: TableHeaderType.TableHeader[];
+  thromboInfos?: TableHeaderType.Thrombo[];
 }
 
 export default function RowHeader({
   tableType,
   useCheckbox = false,
-  HeaderInfos,
-  ResultInfos,
+  headerInfos,
+  thromboInfos,
 }: RowHeaderProps) {
-  const channelInfos: TableHeaderType.ChannelInfo[] = HeaderInfos.map(info => ({
-    channelIndex: info.channelIndex,
-    channelName: info.channelName,
-    colSpan: info.colSpan,
-  }));
-  const targetInfos: TableHeaderType.TargetInfo[] = HeaderInfos.map(
-    channel =>
-      channel.targetInfo?.map(info => ({
-        channelIndex: channel.channelIndex,
-        targetName: info.targetName,
-        targetUnit: info.targetUnit,
-      })) || [],
-  ).flat();
+  const channelHeaders: TableHeaderType.ChannelHeader[] = headerInfos.map(
+    info => ({
+      channelIndex: info.channelIndex,
+      channelName: info.channelName,
+      colSpan: info.colSpan,
+    }),
+  );
 
   switch (tableType) {
     case 'thrombosis':
-      const geneNames: string[] = ResultInfos
-        ? ResultInfos.map(info => info.geneName)
-        : [];
-      const targetNames: string[] = ResultInfos
-        ? ResultInfos.map(info => info.targetName)
-        : [];
+      const thromboHeaders: TableHeaderType.ThromboHeader[] = headerInfos
+        .map(
+          channel =>
+            channel.targetInfo?.map(info => ({
+              channelIndex: channel.channelIndex,
+              geneName: info.geneName || '',
+              targetName: info.targetName,
+            })) || [],
+        )
+        .flat();
+
       return (
         <RowHeaderThrombosis
           useCheckbox={useCheckbox}
-          channelInfos={channelInfos}
-          targetInfos={targetInfos}
-          geneNames={geneNames}
-          targetNames={targetNames}
+          channelHeaders={channelHeaders}
+          thromboHeaders={thromboHeaders}
+          thromboResultHeaders={thromboInfos || []}
         />
       );
     case 'merge':
       return (
-        <RowHeaderMerge useCheckbox={useCheckbox} channelInfos={channelInfos} />
+        <RowHeaderMerge
+          useCheckbox={useCheckbox}
+          channelHeaders={channelHeaders}
+        />
       );
     default:
+      const targetHeaders: TableHeaderType.TargetHeader[] = headerInfos
+        .map(
+          channel =>
+            channel.targetInfo?.map(info => ({
+              channelIndex: channel.channelIndex,
+              targetName: info.targetName,
+              targetUnit: info.targetUnit,
+            })) || [],
+        )
+        .flat();
       return (
         <RowHeaderBasic
           useCheckbox={useCheckbox}
-          channelInfos={channelInfos}
-          targetInfos={targetInfos}
+          channelHeaders={channelHeaders}
+          targetHeaders={targetHeaders}
         />
       );
   }

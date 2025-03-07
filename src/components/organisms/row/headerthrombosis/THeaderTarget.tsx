@@ -4,16 +4,17 @@ import TableHeader from '@components/molecules/cell/TableHeader';
 import TableHeaderType from '../header.type';
 
 interface THeaderTargetProps {
-  targetInfos: TableHeaderType.TargetInfo[];
+  thromboHeaders: TableHeaderType.ThromboHeader[];
   targetNames: string[];
 }
 
 export default function THeaderTarget({
-  targetInfos,
+  thromboHeaders,
   targetNames,
 }: THeaderTargetProps) {
   return (
     <Tr>
+      {/* Result Column */}
       {targetNames.map(targetName => (
         <TableHeader
           key={`table-header-result-target-${targetName}`}
@@ -21,14 +22,18 @@ export default function THeaderTarget({
           text={targetName}
         />
       ))}
-      {targetInfos.map(info => (
-        <TableHeader
-          key={`table-header-unit-${info.channelIndex}-${info.targetUnit}`}
-          content="header2"
-          channelIndex={info.channelIndex}
-          text={info.targetUnit}
-        />
-      ))}
+      {/* Channel Columns */}
+      {thromboHeaders.map(
+        info =>
+          info.targetName !== '' && (
+            <TableHeader
+              key={`table-header-target-${info.channelIndex}-${info.targetName}`}
+              content="header2"
+              channelIndex={info.channelIndex}
+              text={info.targetName}
+            />
+          ),
+      )}
     </Tr>
   );
 }

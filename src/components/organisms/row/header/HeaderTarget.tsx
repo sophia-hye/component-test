@@ -4,13 +4,13 @@ import TableHeader from '@components/molecules/cell/TableHeader';
 import TableHeaderType from '../header.type';
 
 interface HeaderTargetProps {
-  targetInfos: TableHeaderType.TargetInfo[];
+  targetHeaders: TableHeaderType.TargetHeader[];
 }
 
-export default function HeaderTarget({ targetInfos }: HeaderTargetProps) {
+export default function HeaderTarget({ targetHeaders }: HeaderTargetProps) {
   return (
     <Tr>
-      {targetInfos.map(info => (
+      {targetHeaders.map(info => (
         <TableHeader
           key={`table-header-target-${info.targetName}`}
           content="header2"

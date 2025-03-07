@@ -10,7 +10,7 @@ export default function TableType8() {
 
   return (
     <Table>
-      <RowHeader tableType="basic" useCheckbox HeaderInfos={headerMerge} />
+      <RowHeader tableType="merge" useCheckbox headerInfos={headerMerge} />
       <RowCell />
     </Table>
   );

@@ -6,13 +6,13 @@ import TableHeaderType from '../header.type';
 interface THeaderBaseProps {
   rowSpan: number;
   useCheckbox: boolean;
-  channelInfos: TableHeaderType.ChannelInfo[];
+  channelHeaders: TableHeaderType.ChannelHeader[];
 }
 
 export default function THeaderBase({
   rowSpan,
   useCheckbox,
-  channelInfos,
+  channelHeaders,
 }: THeaderBaseProps) {
   return (
     <Tr>
@@ -29,12 +29,12 @@ export default function THeaderBase({
       <TableHeader content="header1" thKey="sampleId" rowSpan={rowSpan} />
       <TableHeader content="header1" thKey="result" rowSpan={2} colSpan={7} />
       <TableHeader content="header1" thKey="type" rowSpan={rowSpan} />
-      {channelInfos.map(info => (
+      {channelHeaders.map(header => (
         <TableHeader
-          key={`table-header-colorbar-${info.channelIndex}`}
+          key={`table-header-colorbar-${header.channelIndex}`}
           content="colorbar"
-          channelIndex={info.channelIndex}
-          colSpan={info.colSpan}
+          channelIndex={header.channelIndex}
+          colSpan={header.colSpan}
         />
       ))}
       <TableHeader content="header1" thKey="comment" rowSpan={rowSpan} />

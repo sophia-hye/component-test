@@ -1,30 +1,30 @@
+type ChannelIdx = { channelIndex: ChannelNumberType };
+
+type Channel = {
+  channelName: string;
+  colSpan: number;
+};
+
+type Target = {
+  targetName: string;
+  targetUnit?: string;
+  geneName?: string;
+};
+
 export namespace TableHeaderType {
-  export type ChannelInfo = {
-    channelIndex: ChannelNumberType;
-    channelName: string;
-    colSpan: number;
-  };
+  export type ChannelHeader = ChannelIdx & Channel;
+  export type TargetHeader = ChannelIdx & Target;
 
-  export type TargetInfo = {
-    channelIndex: ChannelNumberType;
-    targetName: string;
-    targetUnit?: string;
-  };
-
-  export type TableHeader = {
-    channelIndex: ChannelNumberType;
-    channelName: string;
-    colSpan: number;
-    targetInfo?: {
-      targetName: string;
-      targetUnit?: string;
-    }[];
-  };
-
-  export type ResultInfo = {
+  export type Thrombo = {
     geneName: string;
     targetName: string;
   };
+
+  export type TableHeader = ChannelHeader & {
+    targetInfo?: Target[];
+  };
+
+  export type ThromboHeader = ChannelIdx & Thrombo;
 }
 
 export default TableHeaderType;

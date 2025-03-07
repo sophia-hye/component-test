@@ -4,13 +4,15 @@ import TableHeader from '@components/molecules/cell/TableHeader';
 import TableHeaderType from '../header.type';
 
 interface THeaderChannelProps {
-  channelInfos: TableHeaderType.ChannelInfo[];
+  channelHeaders: TableHeaderType.ChannelHeader[];
 }
 
-export default function THeaderChannel({ channelInfos }: THeaderChannelProps) {
+export default function THeaderChannel({
+  channelHeaders,
+}: THeaderChannelProps) {
   return (
     <Tr>
-      {channelInfos.map(info => (
+      {channelHeaders.map(info => (
         <TableHeader
           key={`table-header-channel-${info.channelIndex}-${info.channelName}`}
           content="header1"
