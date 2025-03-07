@@ -12,6 +12,7 @@ type CellContentType = 'checkbox' | 'selectbox' | 'cell16' | 'cell14';
 export interface TableCellProps {
   content: CellContentType;
   tdKey: TdKeyType;
+  isHovered: boolean;
   text?: string;
   checked?: boolean;
   alignLeft?: boolean;
@@ -55,6 +56,7 @@ export default function TableCell(props: TableCellProps) {
       rowSpan={rowSpan}
       colSpan={colSpan}
       tdKey={props.tdKey}
+      isHovered={props.isHovered}
       alignLeft={props.alignLeft}
     >
       <Styled.Container className={props.content}>

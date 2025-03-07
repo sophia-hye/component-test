@@ -9,20 +9,22 @@ export type TdKeyType = keyof Pick<
 
 interface TdProps {
   tdKey: TdKeyType;
+  isHovered: boolean;
   alignLeft?: boolean;
 }
 
 const Td = styled.td<TdProps>`
   text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'center')};
-  ${({ tdKey }) => {
+  ${({ tdKey, isHovered }) => {
     const textColor = tdKey === 'positive' ? sysColor.white : undefined;
     return css`
       color: ${textColor};
-      background-color: ${sysColor.tableCell[tdKey].default};
+      background-color: ${isHovered
+        ? sysColor.tableCell[tdKey].hovered
+        : sysColor.tableCell[tdKey].default};
+      /* background-color: isHovered ? ${sysColor.tableCell[tdKey].hovered}:
+        ${sysColor.tableCell[tdKey].default}; */
 
-      &:hover {
-        background-color: ${sysColor.tableCell[tdKey].hovered};
-      }
       /** TODO: selected 배경색 설정 필요 */
     `;
   }}

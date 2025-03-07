@@ -51,6 +51,7 @@ export default IconComponents;
 //   close: React.lazy(() => import('../assets/close.svg').then((module) => ({ default: module.ReactComponent }))),
 //   down: React.lazy(() => import('../assets/down.svg').then((module) => ({ default: module.ReactComponent }))),
 //   export: React.lazy(() => import('../assets/export.svg').then((module) => ({ default: module.ReactComponent }))),
+//   forward: React.lazy(() => import('../assets/forward.svg').then((module) => ({ default: module.ReactComponent }))),
 //   indeterminate: React.lazy(() => import('../assets/indeterminate.svg').then((module) => ({ default: module.ReactComponent }))),
 //   info: React.lazy(() => import('../assets/info.svg').then((module) => ({ default: module.ReactComponent }))),
 //   intergration: React.lazy(() => import('../assets/intergration.svg').then((module) => ({ default: module.ReactComponent }))),
