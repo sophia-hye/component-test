@@ -33,6 +33,7 @@ export default function THeaderBase({
         <TableHeader
           key={`table-header-colorbar-${header.channelIndex}`}
           content="colorbar"
+          thKey="target"
           channelIndex={header.channelIndex}
           colSpan={header.colSpan}
         />

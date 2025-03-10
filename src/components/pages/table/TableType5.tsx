@@ -5,6 +5,7 @@ import RowHeader from '@/components/organisms/row/RowHeader';
 import TableHeaderType from '@/components/organisms/row/header.type';
 import thrombosis from './testdata/header/Thrombosis';
 import thromboResult from './testdata/header/Thrombosis2';
+import ThrombosisData from './testdata/body/ThrombosisData';
 
 export default function TableType5() {
   const headerThrombo: TableHeaderType.TableHeader[] = thrombosis;
@@ -18,7 +19,7 @@ export default function TableType5() {
         headerInfos={headerThrombo}
         thromboInfos={resultThrombo}
       />
-      {/* <RowCell /> */}
+      <RowCell bodyData={ThrombosisData} />
     </Table>
   );
 }

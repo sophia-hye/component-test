@@ -14,7 +14,12 @@ interface TdProps {
 }
 
 const Td = styled.td<TdProps>`
+  box-sizing: border-box;
+  height: 32px;
+  padding: 4px;
+
   text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'center')};
+
   ${({ tdKey, isHovered }) => {
     const textColor = tdKey === 'positive' ? sysColor.white : undefined;
     return css`
@@ -22,8 +27,6 @@ const Td = styled.td<TdProps>`
       background-color: ${isHovered
         ? sysColor.tableCell[tdKey].hovered
         : sysColor.tableCell[tdKey].default};
-      /* background-color: isHovered ? ${sysColor.tableCell[tdKey].hovered}:
-        ${sysColor.tableCell[tdKey].default}; */
 
       /** TODO: selected 배경색 설정 필요 */
     `;

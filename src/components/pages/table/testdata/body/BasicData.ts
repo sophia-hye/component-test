@@ -1,14 +1,6 @@
-type CellTest = {
-  rowIndex: number;
-  wellId: string;
-  sampleId: string;
-  result: string;
-  wellType: string;
-  targetResult: string[];
-  comment: string;
-};
+import TableBodyType from '@/components/organisms/row/body.type';
 
-const cellDataList: CellTest[] = [
+const DataList: TableBodyType.Data[] = [
   {
     rowIndex: 1,
     wellId: 'A01',
@@ -38,6 +30,6 @@ const cellDataList: CellTest[] = [
   },
 ];
 
-const cellData: CellTest = cellDataList[0];
+const BasicData: TableBodyType.Data = DataList[0];
 
-export default cellData;
+export default BasicData;

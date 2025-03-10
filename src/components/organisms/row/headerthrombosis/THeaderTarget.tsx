@@ -19,7 +19,9 @@ export default function THeaderTarget({
         <TableHeader
           key={`table-header-result-target-${targetName}`}
           content="header2"
+          thKey="target"
           text={targetName}
+          alignLeft
         />
       ))}
       {/* Channel Columns */}
@@ -29,8 +31,10 @@ export default function THeaderTarget({
             <TableHeader
               key={`table-header-target-${info.channelIndex}-${info.targetName}`}
               content="header2"
+              thKey="target"
               channelIndex={info.channelIndex}
               text={info.targetName}
+              alignLeft
             />
           ),
       )}

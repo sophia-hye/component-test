@@ -7,15 +7,17 @@ import { sysNumber } from '@designtokens/systems/sysNumber';
 export type ThKeyType = keyof typeof sysString.table;
 
 interface ThProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
-  thKey?: ThKeyType;
+  thKey: ThKeyType;
   alignLeft?: boolean;
   channelIndex?: ChannelNumberType;
   testTransformOff?: boolean;
   isColorbar?: boolean;
   needVibrantColor: boolean;
+  paddingValue: string;
 }
 
 const Th = styled.th<ThProps>`
+  padding: ${({ paddingValue }) => paddingValue};
   text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'center')};
   text-transform: ${({ testTransformOff }) =>
     testTransformOff ? 'none' : 'capitalize'};
@@ -24,19 +26,13 @@ const Th = styled.th<ThProps>`
     isColorbar &&
     css`
       height: 8px !important;
-      padding: 0 !important;
       line-height: 8px;
       overflow: hidden;
-      max-height: 8px;
-      box-sizing: border-box;
 
-      > div {
+      * {
         height: 8px;
-        padding: 0 !important;
         line-height: 8px;
         overflow: hidden;
-        max-height: 8px;
-        box-sizing: border-box;
       }
     `}
 
@@ -53,11 +49,6 @@ const Th = styled.th<ThProps>`
     `;
   }}
   ${({ thKey }) => {
-    if (!thKey)
-      return css`
-        width: auto;
-      `;
-
     const width = sysNumber.table.width[thKey];
     return css`
       width: ${width};

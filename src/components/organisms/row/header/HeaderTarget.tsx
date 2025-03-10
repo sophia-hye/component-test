@@ -17,6 +17,7 @@ export default function HeaderTarget({ targetHeaders }: HeaderTargetProps) {
           thKey="target"
           channelIndex={info.channelIndex}
           text={info.targetName}
+          alignLeft
         />
       ))}
     </Tr>

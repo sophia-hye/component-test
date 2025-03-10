@@ -14,8 +14,10 @@ export default function HeaderUnit({ targetHeaders }: HeaderUnitProps) {
         <TableHeader
           key={`table-header-unit-${info.channelIndex}-${info.targetUnit}`}
           content="header2"
+          thKey="target"
           channelIndex={info.channelIndex}
           text={info.targetUnit}
+          alignLeft
         />
       ))}
     </Tr>

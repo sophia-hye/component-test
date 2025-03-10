@@ -1,18 +1,17 @@
 import React from 'react';
 import { sysNumber } from '@designtokens/systems/sysNumber';
+import { sysString } from '@designtokens/systems/sysString';
 import Th, { ThKeyType } from '@components/atoms/cell/Th';
 import Checkbox from '@/commonui/Checkbox';
 import Colorbar from '@components/atoms/cell/Colorbar';
-import CellH1 from '@components/atoms/typography/CellH1';
-import CellH2 from '@components/atoms/typography/CellH2';
-import { sysString } from '@designtokens/systems/sysString';
-import styled from 'styled-components';
+import TextH1 from '@/components/atoms/typography/TextH1';
+import TextH2 from '@/components/atoms/typography/TextH2';
 
 type HeaderContentType = 'colorbar' | 'checkbox' | 'header1' | 'header2';
 
 export interface TableHeaderProps {
   content: HeaderContentType;
-  thKey?: ThKeyType;
+  thKey: ThKeyType;
   text?: string;
   checked?: boolean;
   alignLeft?: boolean;
@@ -45,19 +44,14 @@ export default function TableHeader(props: TableHeaderProps) {
       testTransformOff={props.testTransformOff}
       isColorbar={isColorbar}
       needVibrantColor={isColorbar}
+      paddingValue={paddingValue(content)}
       rowSpan={rowSpan}
       colSpan={colSpan}
     >
-      <Container paddingValue={paddingValue(content)}>
-        {headerContent({ ...props })}
-      </Container>
+      {headerContent({ ...props })}
     </Th>
   );
 }
-
-const Container = styled.div<{ paddingValue: string }>`
-  padding: ${({ paddingValue }) => paddingValue};
-`;
 
 const headerContent = (props: TableHeaderProps) => {
   const { content } = props;
@@ -79,11 +73,11 @@ const headerContent = (props: TableHeaderProps) => {
   }
   if (content === 'header1') {
     const defaultText = props.thKey ? sysString.table[props.thKey] : '';
-    return <CellH1 text={props.text ?? defaultText} />;
+    return <TextH1 text={props.text ?? defaultText} />;
   }
   if (content === 'header2') {
     const text = props.text ?? '';
-    return <CellH2 text={text} />;
+    return <TextH2 text={text} />;
   }
 
   return <></>;

@@ -2,8 +2,8 @@ import React from 'react';
 import Checkbox from '@/commonui/Checkbox';
 // import Selectbox from '@commonui/Selectbox';
 import Td, { TdKeyType } from '@components/atoms/cell/Td';
-import CellP1 from '@components/atoms/typography/CellP1';
-import CellP2 from '@components/atoms/typography/CellP2';
+import TextB1 from '@/components/atoms/typography/TextB1';
+import TextB2 from '@/components/atoms/typography/TextB2';
 import { sysNumber } from '@designtokens/systems/sysNumber';
 import styled from 'styled-components';
 
@@ -43,10 +43,10 @@ export default function TableCell(props: TableCellProps) {
     }
     const text = props.text ?? '';
     if (content === 'cell16') {
-      return <CellP1 text={text} />;
+      return <TextB1 text={text} />;
     }
     if (content === 'cell14') {
-      return <CellP2 text={text} />;
+      return <TextB2 text={text} />;
     }
     return null;
   };
@@ -59,28 +59,7 @@ export default function TableCell(props: TableCellProps) {
       isHovered={props.isHovered}
       alignLeft={props.alignLeft}
     >
-      <Styled.Container className={props.content}>
-        {cellContent()}
-      </Styled.Container>
+      {cellContent()}
     </Td>
   );
 }
-
-const Styled = {
-  Container: styled.div`
-    .checkbox {
-      width: ${sysNumber.table.width.checkbox};
-      height: ${sysNumber.table.height.checkbox};
-      padding: ${sysNumber.table.padding.default};
-    }
-
-    .selectbox {
-    }
-
-    .cell16 {
-    }
-
-    .cell14 {
-    }
-  `,
-};
