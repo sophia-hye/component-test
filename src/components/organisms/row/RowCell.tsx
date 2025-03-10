@@ -80,6 +80,7 @@ export default function RowCell() {
         tdKey="normal"
         isHovered={isHovered}
         text="your comments ... "
+        alignLeft
       />
     </Tr>
   );
