@@ -14,6 +14,7 @@ export default function HeaderTarget({ targetHeaders }: HeaderTargetProps) {
         <TableHeader
           key={`table-header-target-${info.targetName}`}
           content="header2"
+          thKey="target"
           channelIndex={info.channelIndex}
           text={info.targetName}
         />

@@ -6,6 +6,7 @@ import Colorbar from '@components/atoms/cell/Colorbar';
 import CellH1 from '@components/atoms/typography/CellH1';
 import CellH2 from '@components/atoms/typography/CellH2';
 import { sysString } from '@designtokens/systems/sysString';
+import styled from 'styled-components';
 
 type HeaderContentType = 'colorbar' | 'checkbox' | 'header1' | 'header2';
 
@@ -15,29 +16,48 @@ export interface TableHeaderProps {
   text?: string;
   checked?: boolean;
   alignLeft?: boolean;
+  testTransformOff?: boolean;
   channelIndex?: ChannelNumberType;
   rowSpan?: number;
   colSpan?: number;
 }
 
 export default function TableHeader(props: TableHeaderProps) {
-  const { rowSpan, colSpan } = props;
+  const { rowSpan, colSpan, content } = props;
+  const isColorbar = content === 'colorbar';
+
+  const paddingValue = (content: HeaderContentType) => {
+    switch (content) {
+      case 'colorbar':
+        return '0';
+      case 'header2':
+        return `${sysNumber.table.padding.small} ${sysNumber.table.padding.default}`;
+      default:
+        return sysNumber.table.padding.default;
+    }
+  };
 
   return (
     <Th
       thKey={props.thKey}
       alignLeft={props.alignLeft}
       channelIndex={props.channelIndex}
-      needVibrantColor={props.content === 'colorbar'}
+      testTransformOff={props.testTransformOff}
+      isColorbar={isColorbar}
+      needVibrantColor={isColorbar}
       rowSpan={rowSpan}
       colSpan={colSpan}
     >
-      <div style={additionalStyle(props.content)}>
+      <Container paddingValue={paddingValue(content)}>
         {headerContent({ ...props })}
-      </div>
+      </Container>
     </Th>
   );
 }
+
+const Container = styled.div<{ paddingValue: string }>`
+  padding: ${({ paddingValue }) => paddingValue};
+`;
 
 const headerContent = (props: TableHeaderProps) => {
   const { content } = props;
@@ -68,11 +88,3 @@ const headerContent = (props: TableHeaderProps) => {
 
   return <></>;
 };
-
-const additionalStyle = (content: HeaderContentType) => ({
-  padding:
-    content === 'header2'
-      ? `${sysNumber.table.padding.small} ${sysNumber.table.padding.default}`
-      : sysNumber.table.padding.default,
-  height: content === 'colorbar' ? '8px' : 'auto',
-});

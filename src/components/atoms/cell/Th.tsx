@@ -10,12 +10,35 @@ interface ThProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
   thKey?: ThKeyType;
   alignLeft?: boolean;
   channelIndex?: ChannelNumberType;
+  testTransformOff?: boolean;
+  isColorbar?: boolean;
   needVibrantColor: boolean;
 }
 
 const Th = styled.th<ThProps>`
-  text-transform: capitalize;
   text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'center')};
+  text-transform: ${({ testTransformOff }) =>
+    testTransformOff ? 'none' : 'capitalize'};
+
+  ${({ isColorbar }) =>
+    isColorbar &&
+    css`
+      height: 8px !important;
+      padding: 0 !important;
+      line-height: 8px;
+      overflow: hidden;
+      max-height: 8px;
+      box-sizing: border-box;
+
+      > div {
+        height: 8px;
+        padding: 0 !important;
+        line-height: 8px;
+        overflow: hidden;
+        max-height: 8px;
+        box-sizing: border-box;
+      }
+    `}
 
   ${({ channelIndex, needVibrantColor }) => {
     const { tableCell } = sysColor;
@@ -29,19 +52,17 @@ const Th = styled.th<ThProps>`
       background-color: ${bgColor};
     `;
   }}
-
   ${({ thKey }) => {
-    const defaultWidth = css`
-      width: 'auto';
-    `;
-
-    if (!thKey) return defaultWidth;
+    if (!thKey)
+      return css`
+        width: auto;
+      `;
 
     const width = sysNumber.table.width[thKey];
     return css`
-      min-width: ${width};
+      width: ${width};
     `;
-  }}
+  }};
 `;
 
 export default Th;

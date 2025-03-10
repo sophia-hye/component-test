@@ -17,7 +17,12 @@ export default function THeaderGene({
   return (
     <Tr>
       {/* Result Column */}
-      <TableHeader content="header2" text="C(t)" rowSpan={2} />
+      <TableHeader
+        content="header2"
+        testTransformOff={true}
+        text="C(t)"
+        rowSpan={2}
+      />
       {geneNames.map(geneName => (
         <TableHeader
           key={`table-header-result-gene-${geneName}`}
@@ -32,6 +37,7 @@ export default function THeaderGene({
             <TableHeader
               key={`table-header-target-${info.geneName}`}
               content="header2"
+              testTransformOff={true}
               channelIndex={info.channelIndex}
               text={info.geneName}
               rowSpan={2}

@@ -14,6 +14,7 @@ export default function HeaderChannel({ channelHeaders }: HeaderChannelProps) {
         <TableHeader
           key={`table-header-channel-${info.channelIndex}-${info.channelName}`}
           content="header1"
+          thKey="target"
           channelIndex={info.channelIndex}
           text={info.channelName}
           colSpan={info.colSpan}
