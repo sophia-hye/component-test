@@ -42,6 +42,23 @@ export const sysTypography2 = {
       default: refTypography.letterSpacing.default,
     },
   },
+  input: {
+    fontFamily: {
+      default: refTypography.fontFamily.notoSans,
+    },
+    fontWeight: {
+      regular: refTypography.weight[400],
+    },
+    fontSize: {
+      default: refTypography.size[14],
+    },
+    lineHeight: {
+      default: refTypography.lineHeight[20],
+    },
+    letterSpacing: {
+      default: refTypography.letterSpacing.default,
+    },
+  },
   button: {
     fontFamily: {
       default: refTypography.fontFamily.notoSans,

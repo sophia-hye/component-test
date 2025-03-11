@@ -10,14 +10,14 @@ export default function CellInput({ children }: CellInputProps) {
   return <Styled.Container>{children}</Styled.Container>;
 }
 
-const { table } = sysTypography2;
+const { input } = sysTypography2;
 
 const Styled = {
   Container: styled.div`
-    font-family: ${table.fontFamily.default};
-    font-weight: ${table.fontWeight.regular};
-    font-size: ${table.fontSize.default};
-    line-height: ${table.lineHeight.default};
-    letter-spacing: ${table.letterSpacing.default};
+    font-family: ${input.fontFamily.default};
+    font-weight: ${input.fontWeight.regular};
+    font-size: ${input.fontSize.default};
+    line-height: ${input.lineHeight.default};
+    letter-spacing: ${input.letterSpacing.default};
   `,
 };
