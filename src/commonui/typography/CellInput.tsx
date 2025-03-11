@@ -3,11 +3,11 @@ import { sysTypography2 } from '@designtokens/systems/sysTypography2';
 import styled from 'styled-components';
 
 interface CellInputProps {
-  text: string;
+  children: string;
 }
 
-export default function CellInput({ text }: CellInputProps) {
-  return <Styled.Container>{text}</Styled.Container>;
+export default function CellInput({ children }: CellInputProps) {
+  return <Styled.Container>{children}</Styled.Container>;
 }
 
 const { table } = sysTypography2;

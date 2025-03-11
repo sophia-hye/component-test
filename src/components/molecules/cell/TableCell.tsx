@@ -1,11 +1,9 @@
 import React from 'react';
-import Checkbox from '@/commonui/Checkbox';
-// import Selectbox from '@commonui/Selectbox';
 import Td, { TdKeyType } from '@components/atoms/cell/Td';
-import TextB1 from '@/components/atoms/typography/TextB1';
-import TextB2 from '@/components/atoms/typography/TextB2';
-import { sysNumber } from '@designtokens/systems/sysNumber';
-import styled from 'styled-components';
+import TextB1 from '@/commonui/typography/TextB1';
+import TextB2 from '@/commonui/typography/TextB2';
+import Checkbox from '@/commonui/Checkbox';
+import Selectbox from '@/commonui/Selectbox';
 
 type CellContentType = 'checkbox' | 'selectbox' | 'cell16' | 'cell14';
 
@@ -38,7 +36,7 @@ export default function TableCell(props: TableCellProps) {
       );
     }
     if (content === 'selectbox') {
-      // return <Selectbox />
+      return <Selectbox />;
       return null;
     }
     const text = props.text ?? '';

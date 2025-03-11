@@ -4,8 +4,8 @@ import { sysString } from '@designtokens/systems/sysString';
 import Th, { ThKeyType } from '@components/atoms/cell/Th';
 import Checkbox from '@/commonui/Checkbox';
 import Colorbar from '@components/atoms/cell/Colorbar';
-import TextH1 from '@/components/atoms/typography/TextH1';
-import TextH2 from '@/components/atoms/typography/TextH2';
+import TextH1 from '@/commonui/typography/TextH1';
+import TextH2 from '@/commonui/typography/TextH2';
 
 type HeaderContentType = 'colorbar' | 'checkbox' | 'header1' | 'header2';
 

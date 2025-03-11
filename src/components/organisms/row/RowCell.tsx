@@ -14,6 +14,8 @@ export default function RowCell({ bodyData }: RowCellProps) {
   const meltPositives = ['+', '++', '+++'];
   const isThrombosisAssay = Array.isArray(bodyData.result);
 
+  const isUserAuthorization: boolean = true;
+
   useEffect(() => {
     console.log('Row Hover Test: ', isHovered);
   }, [isHovered]);
@@ -57,24 +59,37 @@ export default function RowCell({ bodyData }: RowCellProps) {
           alignLeft
         />
       ) : (
-        bodyData.result.map(thromboResult => (
-          <TableCell
-            content="cell16"
-            tdKey={getThrombosisTdKey(thromboResult)}
-            isHovered={isHovered}
-            text={thromboResult}
-            alignLeft
-          />
-        ))
+        bodyData.result.map(thromboResult => {
+          const capitalizedText =
+            thromboResult.charAt(0).toUpperCase() + thromboResult.substring(1);
+          return (
+            <TableCell
+              content="cell16"
+              tdKey={getThrombosisTdKey(thromboResult)}
+              isHovered={isHovered}
+              text={capitalizedText}
+              alignLeft
+            />
+          );
+        })
       )}
 
-      {/* select box로 바꿔야함 */}
-      <TableCell
-        content="cell16"
-        tdKey="normal"
-        isHovered={isHovered}
-        text={bodyData.wellType}
-      />
+      {isUserAuthorization ? (
+        <TableCell
+          content="selectbox"
+          tdKey="normal"
+          isHovered={isHovered}
+          text={bodyData.wellType}
+        />
+      ) : (
+        <TableCell
+          content="cell16"
+          tdKey="normal"
+          isHovered={isHovered}
+          text={bodyData.wellType}
+        />
+      )}
+
       {bodyData.targetResult.map(value => {
         const isMeltPositive = meltPositives.includes(value);
         const isCtPositive = !Number.isNaN(Number(value));
