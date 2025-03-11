@@ -5,21 +5,37 @@ import styled from 'styled-components';
 
 const { tableCell } = sysColor;
 
-const Table = styled.table`
-  min-width: 1880px;
-  color: ${tableCell.text};
-  background-color: ${tableCell.normal.default};
+interface TableProps {
+  children: React.ReactNode;
+}
 
-  box-sizing: border-box;
-  border-collapse: collapse;
-  border-radius: ${sysNumber.table.radius.default};
-  border: 1px solid ${tableCell.line};
+export default function Table({ children }: TableProps) {
+  return (
+    <Styled.Container>
+      <Styled.Table>{children}</Styled.Table>
+    </Styled.Container>
+  );
+}
 
-  th,
-  td {
+const Styled = {
+  Container: styled.div`
+    display: inline-block;
     border: 1px solid ${tableCell.line};
-    vertical-align: middle;
-  }
-`;
+    border-radius: ${sysNumber.table.radius.default};
+    overflow: hidden;
+  `,
+  Table: styled.table`
+    min-width: 1880px;
+    color: ${tableCell.text};
+    background-color: ${tableCell.normal.default};
 
-export default Table;
+    border-collapse: collapse;
+    border-style: hidden;
+
+    th,
+    td {
+      border: 1px solid ${tableCell.line};
+      vertical-align: middle;
+    }
+  `,
+};
