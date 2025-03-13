@@ -30,18 +30,10 @@ const Styled = {
       border-bottom: none;
       vertical-align: middle;
       position: relative;
-
-      &:last-child {
-        border-right: 1px solid ${tableCell.line};
-      }
     }
 
-    tr:last-child td {
-      border-bottom: 1px solid ${tableCell.line};
-    }
-
-    /* 모서리 radius 적용 */
-    tr:first-child {
+    /* table 직계 border style */
+    > tr:first-child {
       th {
         border-top: none;
       }
@@ -53,7 +45,7 @@ const Styled = {
       }
     }
 
-    tr:last-child {
+    > tr:last-child {
       td {
         border-bottom: none;
       }
@@ -64,6 +56,34 @@ const Styled = {
       td:last-child {
         border-right: none;
         border-bottom-right-radius: ${sysNumber.table.radius.default};
+      }
+    }
+
+    /* table 내부 div의 border style */
+    > div {
+      tr:first-child {
+        td:first-child {
+          border-left: none;
+          border-bottom-left-radius: ${sysNumber.table.radius.default};
+        }
+        td:last-child {
+          border-right: none;
+          border-bottom-right-radius: ${sysNumber.table.radius.default};
+        }
+      }
+      tr:last-child {
+        td {
+          border-bottom: none;
+          /* border-bottom-left-radius: ${sysNumber.table.radius.default}; */
+        }
+      }
+    }
+
+    > div:first-child {
+      tr:first-child {
+        th {
+          border-top: 1px solid ${tableCell.line};
+        }
       }
     }
   `,
