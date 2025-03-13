@@ -1,6 +1,6 @@
 import TableBodyType from '@/components/organisms/row/body.type';
 
-const DataList: TableBodyType.Data[] = [
+const DataList: TableBodyType.TableBodyData[] = [
   {
     rowIndex: 1,
     wellId: 'A01',
@@ -41,6 +41,6 @@ const DataList: TableBodyType.Data[] = [
   },
 ];
 
-const BasicData2: TableBodyType.Data = DataList[0];
+const BasicData2: TableBodyType.TableBodyData = DataList[0];
 
 export default BasicData2;

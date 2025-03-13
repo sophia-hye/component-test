@@ -5,10 +5,8 @@ import { sysColor } from '@designtokens/systems/sysColor';
 import CellInput from './typography/CellInput';
 
 export default function Selectbox() {
-  // 동작
-  // 1. 클릭시 옵션 목록이 열림
-  // 2. 한번 더 클릭시 옵션 목록이 닫힘
-  // 3. 옵션 클릭시 옵션의 텍스트가 select 안으로 들어가면서 옵션 목록이 닫힘
+  // 구현 필요한 동작
+  // > 옵션 클릭시 옵션의 텍스트가 select 안으로 들어가면서 옵션 목록이 닫힘
 
   const [isOpen, setIsOpen] = useState(false);
   const selected: string = 'Sample';
@@ -72,6 +70,7 @@ const Styled = {
     top: 20px;
     left: 0;
     padding: 0;
+    z-index: 1;
     text-align: left;
     border-radius: 8px;
     border: 1px solid ${sysColor.inputbox.lineDefault};

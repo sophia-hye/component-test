@@ -1,6 +1,6 @@
 import TableBodyType from '@/components/organisms/row/body.type';
 
-const DataList: TableBodyType.DataThrombosis[] = [
+const DataList: TableBodyType.TableBodyData[] = [
   {
     rowIndex: 1,
     wellId: 'A01',
@@ -78,6 +78,6 @@ const DataList: TableBodyType.DataThrombosis[] = [
   },
 ];
 
-const ThrombosisData: TableBodyType.DataThrombosis = DataList[0];
+const ThrombosisData: TableBodyType.TableBodyData = DataList[0];
 
 export default ThrombosisData;

@@ -16,28 +16,25 @@ export interface TableCellProps {
   alignLeft?: boolean;
   rowSpan?: number;
   colSpan?: number;
+  onCheckboxChange?: (checked: boolean) => void;
 }
 
 export default function TableCell(props: TableCellProps) {
-  const { rowSpan, colSpan } = props;
+  const { rowSpan, colSpan, onCheckboxChange } = props;
 
   const cellContent = () => {
-    const { content } = props;
+    const { content, checked } = props;
 
     if (content === 'checkbox') {
-      const isChecked: boolean = props.checked === true;
       return (
         <Checkbox
-          status="checked"
-          onChange={() => {
-            return null;
-          }}
+          status={checked ? 'checked' : 'unchecked'}
+          onChange={() => onCheckboxChange?.(!checked)}
         />
       );
     }
     if (content === 'selectbox') {
       return <Selectbox />;
-      return null;
     }
     const text = props.text ?? '';
     if (content === 'cell16') {

@@ -1,11 +1,4 @@
-type FixedLengthArray<T extends unknown[], L extends number> = T & {
-  length: L;
-};
-type SevenStrings = FixedLengthArray<string[], 7>;
-
 export namespace TableBodyType {
-  export type WellType = 'Sample' | 'NC' | 'PC';
-
   export type Data = {
     rowIndex: number;
     wellId: string;
@@ -21,6 +14,18 @@ export namespace TableBodyType {
   };
 
   export type TableBodyData = Data | DataThrombosis;
+
+  type targetResultInfo = {
+    channelIndex: ChannelNumberType;
+    targetName: string;
+    targetResult: string;
+  };
+
+  export type TableBodyDataMerge = Omit<Data, 'wellId' | 'targetResult'> & {
+    mergedWellInfo: {
+      [key in WellId]?: targetResultInfo[];
+    };
+  };
 }
 
 export default TableBodyType;

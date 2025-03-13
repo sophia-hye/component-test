@@ -10,32 +10,61 @@ interface TableProps {
 }
 
 export default function Table({ children }: TableProps) {
-  return (
-    <Styled.Container>
-      <Styled.Table>{children}</Styled.Table>
-    </Styled.Container>
-  );
+  return <Styled.Table>{children}</Styled.Table>;
 }
 
 const Styled = {
-  Container: styled.div`
-    display: inline-block;
-    border: 1px solid ${tableCell.line};
-    border-radius: ${sysNumber.table.radius.default};
-    overflow: hidden;
-  `,
   Table: styled.table`
     min-width: 1880px;
     color: ${tableCell.text};
     background-color: ${tableCell.normal.default};
-
-    border-collapse: collapse;
-    border-style: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid ${tableCell.line};
+    border-radius: ${sysNumber.table.radius.default};
 
     th,
     td {
       border: 1px solid ${tableCell.line};
+      border-right: none;
+      border-bottom: none;
       vertical-align: middle;
+      position: relative;
+
+      &:last-child {
+        border-right: 1px solid ${tableCell.line};
+      }
+    }
+
+    tr:last-child td {
+      border-bottom: 1px solid ${tableCell.line};
+    }
+
+    /* 모서리 radius 적용 */
+    tr:first-child {
+      th {
+        border-top: none;
+      }
+      th:first-child {
+        border-left: none;
+      }
+      th:last-child {
+        border-right: none;
+      }
+    }
+
+    tr:last-child {
+      td {
+        border-bottom: none;
+      }
+      td:first-child {
+        border-left: none;
+        border-bottom-left-radius: ${sysNumber.table.radius.default};
+      }
+      td:last-child {
+        border-right: none;
+        border-bottom-right-radius: ${sysNumber.table.radius.default};
+      }
     }
   `,
 };
