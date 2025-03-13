@@ -16,6 +16,9 @@ export const refColor = {
     600: '#F8CA02',
     900: '#FFAF13',
   },
+  yellow_green: {
+    700: '#4AC75F',
+  },
   green: {
     100: '#EEFFF4',
     900: '#20DE83',
@@ -29,7 +32,9 @@ export const refColor = {
   },
   cyan: {
     100: '#E9F6FF',
-    900: '#26ADFA',
+    400: '#46BCFF',
+    500: '#12A2F4',
+    700: '#00459F',
   },
   pink: {
     100: '#FFEBF0',
@@ -52,11 +57,16 @@ export const refColor = {
     900: '#1E1E1E',
     1000: '#000000',
   },
+  bg_gray:{
+    100: 'E7E9F5',
+    200: 'D4D8E9',
+  },
   coolgray: {
     100: '#ECECFF',
     200: '#DCDDF8',
     300: '#CDCEEF',
     400: '#BEBFDE',
+    500: '9395C3',
     1000: '#343434',
   },
 };

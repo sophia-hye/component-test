@@ -1,3 +1,4 @@
+import { text } from 'stream/consumers';
 import { refColor } from '../references/refColor';
 
 export const sysColor = {
@@ -5,15 +6,22 @@ export const sysColor = {
   white: refColor.gray[0],
   common: {
     text: {
-      default: refColor.coolgray[1000],
+      default1: refColor.coolgray[1000],
+      default2: refColor.coolgray[400],
     },
     icon: {
-      default: refColor.coolgray[1000],
+      default1: refColor.coolgray[1000],
+      default2: refColor.coolgray[400],
     },
     background: {
       default: refColor.gray[0],
       hovered: refColor.coolgray[100],
+      pressed: refColor.coolgray[200],
       selected: refColor.coolgray[200],
+    },
+    background_gray: {
+      default: refColor.bg_gray[200],
+      hovered: refColor.bg_gray[100],
     },
   },
   tableCell: {
@@ -45,7 +53,7 @@ export const sysColor = {
       selected: refColor.orange[500],
     },
     channel1: {
-      color1: refColor.cyan[900],
+      color1: refColor.cyan[500],
       color2: refColor.cyan[100],
     },
     channel2: {
@@ -74,7 +82,7 @@ export const sysColor = {
     textHinting: refColor.coolgray[400],
     textTyping: refColor.coolgray[1000],
     lineDefault: refColor.coolgray[400],
-    lineTypoing: refColor.blue[700],
+    lineTyping: refColor.blue[700],
     backgroundEnabled: refColor.gray[0],
     backgroundDisabled: refColor.gray[100],
   },
@@ -116,6 +124,24 @@ export const sysColor = {
       icon: {
         default: refColor.blue[700],
         disabled: refColor.coolgray[300],
+      },
+    },
+  },
+  well: {
+    well_circle: {
+      empty: refColor.gray[400],
+      normal: refColor.gray[600],
+      positive: refColor.red[500],
+      negative: refColor.cyan[700],
+      invalid: refColor.yellow[900],
+      text1: refColor.gray[0],
+      text2: refColor.gray[1000],
+    },
+    well_cell: {
+      background: {
+        default: refColor.gray[0],
+        hovered: refColor.coolgray[100],
+        selected: refColor.coolgray[200],
       },
     },
   },
