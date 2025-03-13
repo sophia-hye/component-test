@@ -1,3 +1,4 @@
+
 import { refNumber } from '../references/refNumber';
 
 export const sysNumber = {
@@ -13,15 +14,25 @@ export const sysNumber = {
       comment: refNumber.px[190],
       target: refNumber.px[72],
     },
-    lineHeight: {
-      small: refNumber.px[24],
-      default: refNumber.px[32],
-      medium: refNumber.px[40],
+    textboxHeight: {
+      24: refNumber.px[24],//small
+      32: refNumber.px[32],//default
+      40: refNumber.px[40],//medium
     },
     padding: {
-      small: refNumber.px[2],
-      default: refNumber.px[4],
-      medium: refNumber.px[8],
+      defaultCell: {
+        left_padding_4: refNumber.px[4],
+        right_padding_4: refNumber.px[4],
+        top_padding_4: refNumber.px[4],
+        bottom_padding_4: refNumber.px[4],
+        right_padding_0: refNumber.px[0],
+      },
+      targetCell: {
+        left_padding_4: refNumber.px[4],
+        right_padding_4: refNumber.px[4],
+        top_padding_2: refNumber.px[2],
+        bottom_padding_2: refNumber.px[2],
+      },
     },
     radius: {
       default: refNumber.px[8],
@@ -29,22 +40,28 @@ export const sysNumber = {
   },
   button: {
     padding: {
-      xsmall: refNumber.px[4],
-      small: refNumber.px[8],
-      default: refNumber.px[12],
-      medium: refNumber.px[16],
+      left_padding_12: refNumber.px[12],
+      right_padding_12: refNumber.px[12],
+      top_padding_8: refNumber.px[8],
+      bottom_padding_8: refNumber.px[16],
+      iconSide_padding_8: refNumber.px[8],
+    },
+    gap: {
+      gap_4: refNumber.px[4]
     },
     radius: {
-      small: refNumber.px[4],
-      default: refNumber.px[8],
+      radius_4: refNumber.px[4],
+      radius_8: refNumber.px[8],
     },
   },
   icon: {
-    height: {
-      default: refNumber.px[24],
-    },
     width: {
-      default: refNumber.px[24],
+      width_20: refNumber.px[20],
+      width_24: refNumber.px[24],
+    },
+    height: {
+      width_20: refNumber.px[20],
+      height_24: refNumber.px[24],
     },
   },
 };
