@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Icon from './icon/Icon';
 import { sysColor } from '@designtokens/systems/sysColor';
@@ -9,8 +9,28 @@ import Td from '@/components/atoms/cell/Td';
 export default function TableSelectbox() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState('Sample');
+  const selectboxRef = useRef<HTMLDivElement>(null);
 
   const options: string[] = ['Sample', 'NC', 'PC'];
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        selectboxRef.current &&
+        !selectboxRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const handleClick = () => {
     setIsOpen(prev => {
@@ -25,7 +45,7 @@ export default function TableSelectbox() {
   };
 
   return (
-    <Styled.Container>
+    <Styled.Container ref={selectboxRef}>
       <Styled.Label onClick={handleClick}>
         <CellInput>{selected}</CellInput>
       </Styled.Label>
