@@ -1,6 +1,6 @@
 import React from 'react';
-import { sysTypography2 } from '@designtokens/systems/sysTypography2';
 import styled from 'styled-components';
+import { sysTypography } from '@/designtokens/systems/sysTypography';
 
 interface ButtonTextProps {
   children: string;
@@ -10,16 +10,16 @@ export default function ButtonText({ children }: ButtonTextProps) {
   return <Styled.Container>{children}</Styled.Container>;
 }
 
-const { button } = sysTypography2;
+const { btnHeight_48 } = sysTypography.button;
 
 const Styled = {
   Container: styled.div`
     text-align: center;
 
-    font-family: ${button.fontFamily.default};
-    font-weight: ${button.fontWeight.medium};
-    font-size: ${button.fontSize.default};
-    line-height: ${button.lineHeight.default};
-    letter-spacing: ${button.letterSpacing.default};
+    font-family: ${btnHeight_48.fontFamily};
+    font-weight: ${btnHeight_48.fontWeight};
+    font-size: ${btnHeight_48.fontSize};
+    line-height: ${btnHeight_48.lineHeight};
+    letter-spacing: ${btnHeight_48.letterSpacing};
   `,
 };

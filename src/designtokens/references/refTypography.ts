@@ -18,6 +18,7 @@ export const refTypography = {
     14: '14px', // small
     16: '16px', // default
     20: '20px', // medium
+    24: '24px', // large
   },
   lineHeight: {
     18: '18px', // xsmall

@@ -1,9 +1,8 @@
 import React from 'react';
 import Td, { TdKeyType } from '@components/atoms/cell/Td';
-import TextB1 from '@/commonui/typography/TextB1';
-import TextB2 from '@/commonui/typography/TextB2';
 import Checkbox from '@/commonui/Checkbox';
-import Selectbox from '@/commonui/Selectbox';
+import TextCell16 from '@/commonui/tabletypography/TextCell16';
+import TextCell14 from '@/commonui/tabletypography/TextCell14';
 import TableSelectbox from '@/commonui/TableSelectbox';
 
 type CellContentType = 'checkbox' | 'selectbox' | 'cell16' | 'cell14';
@@ -39,10 +38,10 @@ export default function CellBody(props: Props) {
     }
     const text = props.text ?? '';
     if (content === 'cell16') {
-      return <TextB1 text={text} />;
+      return <TextCell16>{text}</TextCell16>;
     }
     if (content === 'cell14') {
-      return <TextB2 text={text} />;
+      return <TextCell14>{text}</TextCell14>;
     }
     return null;
   };

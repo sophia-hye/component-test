@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Icon from './icon/Icon';
 import { sysColor } from '@designtokens/systems/sysColor';
-import CellInput from './typography/CellInput';
 import { sysNumber } from '@/designtokens/systems/sysNumber';
-import Td from '@/components/atoms/cell/Td';
+import TextInputbox16 from './tabletypography/TextInputbox16';
 
 export default function TableSelectbox() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +46,7 @@ export default function TableSelectbox() {
   return (
     <Styled.Container ref={selectboxRef}>
       <Styled.Label onClick={handleClick}>
-        <CellInput>{selected}</CellInput>
+        <TextInputbox16>{selected}</TextInputbox16>
       </Styled.Label>
       <Styled.IconWrapper onClick={handleClick} isOpen={isOpen}>
         <Icon iconName="down" />
@@ -59,7 +58,7 @@ export default function TableSelectbox() {
             onClick={() => handleOptionSelect(option)}
             isSelected={selected === option}
           >
-            <CellInput>{option}</CellInput>
+            <TextInputbox16>{option}</TextInputbox16>
           </Styled.Option>
         ))}
       </Styled.Select>

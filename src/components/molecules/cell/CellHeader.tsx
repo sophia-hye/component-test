@@ -4,8 +4,8 @@ import { sysString } from '@designtokens/systems/sysString';
 import Th, { ThKeyType } from '@components/atoms/cell/Th';
 import Checkbox from '@/commonui/Checkbox';
 import Colorbar from '@components/atoms/cell/Colorbar';
-import TextH1 from '@/commonui/typography/TextH1';
-import TextH2 from '@/commonui/typography/TextH2';
+import TextHeader16 from '@/commonui/tabletypography/TextHeader16';
+import TextHeader14 from '@/commonui/tabletypography/TextHeader14';
 
 type HeaderContentType = 'colorbar' | 'checkbox' | 'header1' | 'header2';
 
@@ -73,11 +73,11 @@ const headerContent = (props: Props) => {
   }
   if (content === 'header1') {
     const defaultText = props.thKey ? sysString.table[props.thKey] : '';
-    return <TextH1 text={props.text ?? defaultText} />;
+    return <TextHeader16>{props.text ?? defaultText}</TextHeader16>;
   }
   if (content === 'header2') {
     const text = props.text ?? '';
-    return <TextH2 text={text} />;
+    return <TextHeader14>{text}</TextHeader14>;
   }
 
   return <></>;
