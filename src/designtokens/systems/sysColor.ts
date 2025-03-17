@@ -113,7 +113,7 @@ export const sysColor = {
         hovered: refColor.blue[100],
         disabled: refColor.gray[0],
       },
-      line: {
+      border: {
         default: refColor.blue[700],
         disabled: refColor.coolgray[300],
       },
@@ -124,6 +124,36 @@ export const sysColor = {
       icon: {
         default: refColor.blue[700],
         disabled: refColor.coolgray[300],
+      },
+    },
+    toggle: {
+      background: {
+        off: refColor.coolgray[300],
+        on: refColor.blue[700],
+      },
+      circle: {
+        default: refColor.gray[0],
+      },
+    },
+  },
+  chip: {
+    filled: {
+      background: {
+        default: refColor.cyan[400],
+      },
+      text: {
+        default: refColor.gray[0],
+      },
+    },
+    lined: {
+      background: {
+        default: refColor.gray[0],
+      },
+      border: {
+        default: refColor.cyan[400],
+      },
+      text: {
+        default: refColor.cyan[400],
       },
     },
   },

@@ -4,6 +4,7 @@ import Icon from '../icon/Icon';
 import { sysColor } from '@/designtokens/systems/sysColor';
 import { sysNumber } from '@/designtokens/systems/sysNumber';
 import ButtonHeight48 from '../typography/button/ButtonHeight48';
+import PaddingStyle from './ButtonStyle';
 
 interface ButtonFilledProps {
   children: string;
@@ -18,64 +19,43 @@ export default function ButtonFilled({
   onClick,
   disabled = false,
 }: ButtonFilledProps) {
+  const iconColor = disabled
+    ? sysColor.button.filled.icon.disabled
+    : sysColor.button.filled.icon.default;
+
   return (
-    <Styled.Button className={icon} onClick={onClick} disabled={disabled}>
-      {icon === 'left' && <Icon iconName="info" />}
+    <StyledButton iconType={icon} onClick={onClick} disabled={disabled}>
+      {icon === 'left' && <Icon iconName="info" fillColor={iconColor} />}
       <ButtonHeight48>{children}</ButtonHeight48>
-      {icon === 'right' && <Icon iconName="info" />}
-    </Styled.Button>
+      {icon === 'right' && <Icon iconName="info" fillColor={iconColor} />}
+    </StyledButton>
   );
 }
 
 const { filled } = sysColor.button;
 const { button } = sysNumber;
 
-const Styled = {
-  Button: styled.button`
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: ${button.gap.gap_4};
+const StyledButton = styled.button<{ iconType: 'none' | 'left' | 'right' }>`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: ${button.gap.gap_4};
 
-    border-radius: ${button.radius.radius_8};
+  border-radius: ${button.radius.radius_8};
+  border: none;
 
-    svg {
-      fill: ${filled.icon.default};
-    }
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
-    .none {
-      padding-top: ${button.padding.top_padding_8};
-      padding-right: ${button.padding.right_padding_12};
-      padding-bottom: ${button.padding.bottom_padding_8};
-      padding-left: ${button.padding.left_padding_12};
-    }
-    .left {
-      padding-top: ${button.padding.top_padding_8};
-      padding-right: ${button.padding.right_padding_12};
-      padding-bottom: ${button.padding.bottom_padding_8};
-      padding-left: ${button.padding.iconSide_padding_8};
-    }
-    .right {
-      padding-top: ${button.padding.top_padding_8};
-      padding-right: ${button.padding.iconSide_padding_8};
-      padding-bottom: ${button.padding.bottom_padding_8};
-      padding-left: ${button.padding.left_padding_12};
-    }
+  ${({ iconType }) => PaddingStyle[iconType]}
 
-    color: ${filled.text.default};
-    background-color: ${filled.background.default};
-    &:hover {
-      background-color: ${filled.background.hovered};
-    }
+  color: ${filled.text.default};
+  background-color: ${filled.background.default};
+  &:hover {
+    background-color: ${filled.background.hovered};
+  }
 
-    &:disabled {
-      cursor: not-allowed;
-      color: ${filled.text.disabled};
-      background-color: ${filled.background.disabled};
-
-      svg {
-        fill: ${filled.icon.disabled};
-      }
-    }
-  `,
-};
+  &:disabled {
+    color: ${filled.text.disabled};
+    background-color: ${filled.background.disabled};
+  }
+`;
