@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { sysTypography } from '@/designtokens/systems/sysTypography';
 
-interface ButtonTextProps {
+interface Props {
   children: string;
 }
 
-export default function ButtonText({ children }: ButtonTextProps) {
+export default function ButtonHeight48({ children }: Props) {
   return <Styled.Container>{children}</Styled.Container>;
 }
 

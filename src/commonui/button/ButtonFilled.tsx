@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Icon from '../icon/Icon';
-import ButtonText from './ButtonText';
 import { sysColor } from '@/designtokens/systems/sysColor';
 import { sysNumber } from '@/designtokens/systems/sysNumber';
+import ButtonHeight48 from '../typography/button/ButtonHeight48';
 
 interface ButtonFilledProps {
   children: string;
@@ -21,7 +21,7 @@ export default function ButtonFilled({
   return (
     <Styled.Button className={icon} onClick={onClick} disabled={disabled}>
       {icon === 'left' && <Icon iconName="info" />}
-      <ButtonText>{children}</ButtonText>
+      <ButtonHeight48>{children}</ButtonHeight48>
       {icon === 'right' && <Icon iconName="info" />}
     </Styled.Button>
   );
@@ -35,24 +35,31 @@ const Styled = {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: ${button.gap.gap_4};
 
-    border-radius: ${button.radius.default};
+    border-radius: ${button.radius.radius_8};
 
     svg {
       fill: ${filled.icon.default};
     }
 
     .none {
-      padding: ${button.padding.small} ${button.padding.default};
+      padding-top: ${button.padding.top_padding_8};
+      padding-right: ${button.padding.right_padding_12};
+      padding-bottom: ${button.padding.bottom_padding_8};
+      padding-left: ${button.padding.left_padding_12};
     }
     .left {
-      padding: ${button.padding.default} ${button.padding.default}
-        ${button.padding.default} ${button.padding.small};
+      padding-top: ${button.padding.top_padding_8};
+      padding-right: ${button.padding.right_padding_12};
+      padding-bottom: ${button.padding.bottom_padding_8};
+      padding-left: ${button.padding.iconSide_padding_8};
     }
     .right {
-      padding: ${button.padding.small} ${button.padding.small}
-        ${button.padding.small} ${button.padding.default};
+      padding-top: ${button.padding.top_padding_8};
+      padding-right: ${button.padding.iconSide_padding_8};
+      padding-bottom: ${button.padding.bottom_padding_8};
+      padding-left: ${button.padding.left_padding_12};
     }
 
     color: ${filled.text.default};

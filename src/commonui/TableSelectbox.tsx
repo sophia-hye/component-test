@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Icon from './icon/Icon';
 import { sysColor } from '@designtokens/systems/sysColor';
 import { sysNumber } from '@/designtokens/systems/sysNumber';
-import TextInputbox16 from './tabletypography/TextInputbox16';
+import TextInputbox16 from './typography/table/TextInputbox16';
 
 export default function TableSelectbox() {
   const [isOpen, setIsOpen] = useState(false);

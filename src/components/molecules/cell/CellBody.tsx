@@ -1,8 +1,8 @@
 import React from 'react';
 import Td, { TdKeyType } from '@components/atoms/cell/Td';
 import Checkbox from '@/commonui/Checkbox';
-import TextCell16 from '@/commonui/tabletypography/TextCell16';
-import TextCell14 from '@/commonui/tabletypography/TextCell14';
+import TextCell16 from '@/commonui/typography/table/TextCell16';
+import TextCell14 from '@/commonui/typography/table/TextCell14';
 import TableSelectbox from '@/commonui/TableSelectbox';
 
 type CellContentType = 'checkbox' | 'selectbox' | 'cell16' | 'cell14';
