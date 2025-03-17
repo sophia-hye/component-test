@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TableCell from '@/components/molecules/cell/TableCell';
+import TableCell from '@/components/molecules/cell/CellBody';
 
 interface Props {
   isHovered: boolean;

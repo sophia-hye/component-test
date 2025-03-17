@@ -12,9 +12,13 @@ import TableTarget from '../cell/TableTarget';
 
 interface RowCellProps {
   bodyData: TableBodyType.TableBodyData;
+  useCheckbox?: boolean;
 }
 
-export default function RowCell({ bodyData }: RowCellProps) {
+export default function RowCell({
+  bodyData,
+  useCheckbox = true,
+}: RowCellProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   const isThrombosisAssay = Array.isArray(bodyData.result);
@@ -28,7 +32,7 @@ export default function RowCell({ bodyData }: RowCellProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <TableCheckbox isHovered={isHovered} />
+      {useCheckbox && <TableCheckbox isHovered={isHovered} />}
       <TableNo isHovered={isHovered} rowIndex={bodyData.rowIndex} />
       <TableWellId isHovered={isHovered} wellId={bodyData.wellId} />
       <TableSampleId isHovered={isHovered} sampleId={bodyData.sampleId} />

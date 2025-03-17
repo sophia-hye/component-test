@@ -12,7 +12,7 @@ export default function TableType1() {
   return (
     <Table>
       <RowHeader tableType="basic" useCheckbox headerInfos={headerBasic} />
-      <RowCell bodyData={BasicData} />
+      <RowCell bodyData={BasicData} useCheckbox />
     </Table>
   );
 }

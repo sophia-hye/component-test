@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import Icon from './icon/Icon';
 import { sysColor } from '@designtokens/systems/sysColor';
 import CellInput from './typography/CellInput';
+import { sysNumber } from '@/designtokens/systems/sysNumber';
+import Td from '@/components/atoms/cell/Td';
 
-export default function Selectbox() {
+export default function TableSelectbox() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState('Sample');
 
@@ -35,6 +37,7 @@ export default function Selectbox() {
           <Styled.Option
             key={option}
             onClick={() => handleOptionSelect(option)}
+            isSelected={selected === option}
           >
             <CellInput>{option}</CellInput>
           </Styled.Option>
@@ -48,11 +51,9 @@ const Styled = {
   Container: styled.div`
     position: relative;
     width: 100%;
-    min-width: 72px;
     height: inherit;
-    border-radius: 8px;
+    min-width: ${sysNumber.table.width.type};
     color: ${sysColor.inputbox.textTyping};
-    border: 1px solid ${sysColor.inputbox.lineDefault};
     cursor: pointer;
 
     &::after {
@@ -72,8 +73,9 @@ const Styled = {
     list-style-type: none;
     position: absolute;
     width: 100%;
+    min-width: ${sysNumber.table.width.type};
     max-height: ${({ isOpen }) => (isOpen ? '200px' : '0')};
-    top: 20px;
+    top: 24px;
     left: 0;
     padding: 0;
     z-index: 1;
@@ -95,18 +97,22 @@ const Styled = {
     }
     &::-webkit-scrollbar-thumb {
       background: darkgray;
-      border-radius: 45px;
     }
     &::-webkit-scrollbar-thumb:hover {
       background: gray;
     }
   `,
-  Option: styled.li`
+  Option: styled.li<{ isSelected?: boolean }>`
     padding: 8px;
     transition: 0.1s;
+    background-color: ${({ isSelected }) =>
+      isSelected ? sysColor.common.background.selected : 'transparent'};
 
     &:hover {
-      background-color: ${sysColor.common.background.hovered};
+      background-color: ${({ isSelected }) =>
+        isSelected
+          ? sysColor.common.background.selected
+          : sysColor.common.background.hovered};
     }
     &:last-child {
       border-bottom: 0 none;
@@ -126,7 +132,6 @@ const Styled = {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1;
     width: 32px;
     height: inherit;
     display: flex;

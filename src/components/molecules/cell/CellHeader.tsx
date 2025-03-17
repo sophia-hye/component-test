@@ -9,7 +9,7 @@ import TextH2 from '@/commonui/typography/TextH2';
 
 type HeaderContentType = 'colorbar' | 'checkbox' | 'header1' | 'header2';
 
-export interface TableHeaderProps {
+export interface Props {
   content: HeaderContentType;
   thKey: ThKeyType;
   text?: string;
@@ -21,7 +21,7 @@ export interface TableHeaderProps {
   colSpan?: number;
 }
 
-export default function TableHeader(props: TableHeaderProps) {
+export default function TableHeader(props: Props) {
   const { rowSpan, colSpan, content } = props;
   const isColorbar = content === 'colorbar';
 
@@ -30,9 +30,9 @@ export default function TableHeader(props: TableHeaderProps) {
       case 'colorbar':
         return '0';
       case 'header2':
-        return `${sysNumber.table.padding.small} ${sysNumber.table.padding.default}`;
+        return `${sysNumber.table.padding.targetCell.top_padding_2} ${sysNumber.table.padding.defaultCell.left_padding_4}`;
       default:
-        return sysNumber.table.padding.default;
+        return sysNumber.table.padding.defaultCell.top_padding_4;
     }
   };
 
@@ -53,7 +53,7 @@ export default function TableHeader(props: TableHeaderProps) {
   );
 }
 
-const headerContent = (props: TableHeaderProps) => {
+const headerContent = (props: Props) => {
   const { content } = props;
 
   if (content === 'checkbox') {

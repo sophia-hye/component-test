@@ -11,12 +11,14 @@ interface TdProps {
   tdKey: TdKeyType;
   isHovered: boolean;
   alignLeft?: boolean;
+  isSelected?: boolean;
 }
 
 const Td = styled.td<TdProps>`
   box-sizing: border-box;
   height: 32px;
-  padding: 4px;
+  /* padding: 4px; */
+  padding: ${({ isSelected }) => (isSelected ? 0 : '4px')};
 
   text-align: ${({ alignLeft }) => (alignLeft ? 'left' : 'center')};
 

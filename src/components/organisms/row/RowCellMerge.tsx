@@ -7,9 +7,13 @@ import BodyTargetValue from './body/BodyTargetValue';
 
 interface RowCellMergeProps {
   bodyMergedData: TableBodyType.TableBodyDataMerge;
+  useCheckbox?: boolean;
 }
 
-export default function RowCellMerge({ bodyMergedData }: RowCellMergeProps) {
+export default function RowCellMerge({
+  bodyMergedData,
+  useCheckbox = true,
+}: RowCellMergeProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   const sortedWellIds = Object.keys(bodyMergedData.mergedWellInfo).sort(

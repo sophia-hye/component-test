@@ -1,5 +1,5 @@
 import React from 'react';
-import TableHeader from '@/components/molecules/cell/TableHeader';
+import TableHeader from '@/components/molecules/cell/CellHeader';
 
 interface Props {
   targetName: string;

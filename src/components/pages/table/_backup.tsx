@@ -1,5 +1,5 @@
-import TableCell from '@components/molecules/cell/TableCell';
-import TableHeader from '@components/molecules/cell/TableHeader';
+import TableCell from '@/components/molecules/cell/CellBody';
+import TableHeader from '@/components/molecules/cell/CellHeader';
 import React from 'react';
 
 export default function Backup() {

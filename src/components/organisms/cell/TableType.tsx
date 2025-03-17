@@ -1,5 +1,5 @@
 import React from 'react';
-import TableCell from '@/components/molecules/cell/TableCell';
+import TableCell from '@/components/molecules/cell/CellBody';
 import TableBodyType from '../row/body.type';
 
 interface Props {

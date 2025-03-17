@@ -4,10 +4,11 @@ import TextB1 from '@/commonui/typography/TextB1';
 import TextB2 from '@/commonui/typography/TextB2';
 import Checkbox from '@/commonui/Checkbox';
 import Selectbox from '@/commonui/Selectbox';
+import TableSelectbox from '@/commonui/TableSelectbox';
 
 type CellContentType = 'checkbox' | 'selectbox' | 'cell16' | 'cell14';
 
-export interface TableCellProps {
+export interface Props {
   content: CellContentType;
   tdKey: TdKeyType;
   isHovered: boolean;
@@ -19,7 +20,7 @@ export interface TableCellProps {
   onCheckboxChange?: (checked: boolean) => void;
 }
 
-export default function TableCell(props: TableCellProps) {
+export default function CellBody(props: Props) {
   const { rowSpan, colSpan, onCheckboxChange } = props;
 
   const cellContent = () => {
@@ -34,7 +35,7 @@ export default function TableCell(props: TableCellProps) {
       );
     }
     if (content === 'selectbox') {
-      return <Selectbox />;
+      return <TableSelectbox />;
     }
     const text = props.text ?? '';
     if (content === 'cell16') {
@@ -53,6 +54,7 @@ export default function TableCell(props: TableCellProps) {
       tdKey={props.tdKey}
       isHovered={props.isHovered}
       alignLeft={props.alignLeft}
+      isSelected={props.content === 'selectbox'}
     >
       {cellContent()}
     </Td>

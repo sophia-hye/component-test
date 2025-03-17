@@ -1,6 +1,6 @@
 import React from 'react';
 import Tr from '@/components/atoms/cell/Tr';
-import TableHeader from '@components/molecules/cell/TableHeader';
+import TableHeader from '@/components/molecules/cell/CellHeader';
 import TableHeaderType from '../header.type';
 
 interface THeaderGeneProps {

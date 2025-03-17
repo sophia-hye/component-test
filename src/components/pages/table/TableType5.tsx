@@ -19,7 +19,9 @@ export default function TableType5() {
         headerInfos={headerThrombo}
         thromboInfos={resultThrombo}
       />
-      <RowCell bodyData={ThrombosisData} />
+      <RowCell bodyData={ThrombosisData} useCheckbox />
+      <RowCell bodyData={ThrombosisData} useCheckbox />
+      <RowCell bodyData={ThrombosisData} useCheckbox />
     </Table>
   );
 }

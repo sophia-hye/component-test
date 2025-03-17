@@ -1,10 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { sysString } from '@designtokens/systems/sysString';
 import { sysColor } from '@designtokens/systems/sysColor';
 import { sysNumber } from '@designtokens/systems/sysNumber';
 
-export type ThKeyType = keyof typeof sysString.table;
+export type ThKeyType = keyof typeof sysNumber.table.width;
 
 interface ThProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
   thKey: ThKeyType;
