@@ -1,9 +1,10 @@
 import { sysNumber } from '@/designtokens/systems/sysNumber';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const { padding } = sysNumber.button;
+const { button } = sysNumber;
+const { padding } = button;
 
-const PaddingStyle = {
+const buttonPadding = {
   none: css`
     padding-top: ${padding.padding_8};
     padding-right: ${padding.padding_12};
@@ -24,4 +25,17 @@ const PaddingStyle = {
   `,
 };
 
-export default PaddingStyle;
+const ButtonStyle = styled.button<{ iconType: 'none' | 'left' | 'right' }>`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  gap: ${button.gap.gap_4};
+
+  border-radius: ${button.radius.radius_8};
+
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  ${({ iconType }) => buttonPadding[iconType]}
+`;
+
+export default ButtonStyle;
