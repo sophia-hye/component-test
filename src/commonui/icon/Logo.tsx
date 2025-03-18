@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as LogoImage } from '../assets/logoImage.svg';
-import { ReactComponent as LogoText } from '../assets/logoText.svg';
+import { ReactComponent as LogoImage } from '@/assets/logoImage.svg';
+import { ReactComponent as LogoText } from '@/assets/logoText.svg';
 import { sysNumber } from '@/designtokens/systems/sysNumber';
 
-export default function Logo() {
+interface Props {
+  fillColor?: string;
+}
+
+export default function Logo({ fillColor }: Props) {
+  const logoColor = fillColor ?? '#525252';
   return (
     <Styled.Container>
-      <LogoImage />
-      <LogoText />
+      <LogoImage fill={logoColor} />
+      <LogoText fill={logoColor} />
     </Styled.Container>
   );
 }
@@ -28,6 +33,6 @@ const Styled = {
     cursor: pointer;
 
     width: 109px;
-    height: ${sysNumber.icon.height.default};
+    height: ${sysNumber.icon.height.height_24};
   `,
 };
