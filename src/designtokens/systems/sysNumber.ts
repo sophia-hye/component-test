@@ -76,4 +76,14 @@ export const sysNumber = {
       radius_16: refNumber.px[16],
     },
   },
+  inputbox: {
+    padding: {
+      padding_4: refNumber.px[4],
+      padding_8: refNumber.px[8],
+      padding_12: refNumber.px[12],
+    },
+    gap: {
+      gap_4: refNumber.px[4],
+    },
+  },
 };

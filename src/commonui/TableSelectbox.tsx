@@ -33,7 +33,7 @@ export default function TableSelectbox() {
 
   const handleClick = () => {
     setIsOpen(prev => {
-      console.log('selectbox', prev, '->', !prev);
+      console.log('tableselectbox', prev, '->', !prev);
       return !prev;
     });
   };

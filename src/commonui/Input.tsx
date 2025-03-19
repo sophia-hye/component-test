@@ -1,41 +1,39 @@
+import styled from 'styled-components';
 import { sysColor } from '@/designtokens/systems/sysColor';
 import { sysNumber } from '@/designtokens/systems/sysNumber';
-import styled, { css } from 'styled-components';
 
-type InputStatusType = 'default' | 'focused' | 'typing' | 'filled' | 'disabled';
+const { inputbox } = sysColor;
+const { inputbox: inputboxNumber } = sysNumber;
 
-const statusStyle = {
-  default: css``,
-  focused: css`
-    border: 1px solid ${sysColor.inputbox.lineTypoing};
-  `,
-  typing: css`
-    gap: ${sysNumber.table.padding.default};
-    border: 1px solid ${sysColor.inputbox.lineTypoing};
-  `,
-  filled: css`
-    gap: ${sysNumber.table.padding.default};
-  `,
-  disabled: css`
-    gap: ${sysNumber.table.padding.default};
-    background: ${sysColor.inputbox.backgroundDisabled};
-  `,
-};
-
-const Input = styled.input<{ status: InputStatusType }>`
+const Input = styled.input`
   display: flex;
   align-items: center;
-  gap: 10px;
   flex-shrink: 0;
 
   width: 176px;
   height: 32px;
 
-  padding: ${sysNumber.table.padding.default} ${sysNumber.table.padding.medium};
+  padding: ${() =>
+    `${inputboxNumber.padding.padding_4} ${inputboxNumber.padding.padding_8}`};
 
-  border: 1px solid ${sysColor.inputbox.lineDefault};
-  background: ${sysColor.white};
+  /* text color */
+  color: ${inputbox.textTyping};
+  &::placeholder {
+    color: ${inputbox.textHinting};
+  }
 
-  ${({ status }) => statusStyle[status]}
+  /* border color */
+  border: 1px solid ${inputbox.lineDefault};
+  &:focus {
+    outline: none;
+    border-color: ${inputbox.lineTyping};
+  }
+
+  /* background color */
+  background-color: ${inputbox.backgroundEnabled};
+  &:disabled {
+    color: ${inputbox.textDisabled};
+    background-color: ${inputbox.backgroundDisabled};
+  }
 `;
 export default Input;

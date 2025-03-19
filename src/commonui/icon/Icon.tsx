@@ -55,7 +55,7 @@ const Icon = memo(({ iconName, fillColor }: IconProps) => {
       return <BackwardIcon fill={defaultColor} />;
     case 'checked':
       const checkedColor = fillColor ?? '#2930DB';
-      return <CheckedIcon fill={checkedColor} />;
+      return <CheckedIcon fill={checkedColor} width={30} />;
     case 'close':
       return <CloseIcon fill={defaultColor} />;
     case 'down':

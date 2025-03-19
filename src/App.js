@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import TestIcon from './components/templates/test/TestIcon';
+import TestCommonUI from './components/templates/test/TestCommonUI';
 
 function App() {
   return (
     <>
-      <TestIcon />
+      <TestCommonUI />
     </>
   );
 }

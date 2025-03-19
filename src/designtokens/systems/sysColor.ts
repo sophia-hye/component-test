@@ -9,6 +9,7 @@ export const sysColor = {
       default1: refColor.coolgray[1000],
       default2: refColor.coolgray[400],
     },
+    line: refColor.coolgray[400],
     icon: {
       default1: refColor.coolgray[1000],
       default2: refColor.coolgray[400],
@@ -81,10 +82,11 @@ export const sysColor = {
   inputbox: {
     textHinting: refColor.coolgray[400],
     textTyping: refColor.coolgray[1000],
+    textDisabled: refColor.coolgray[400],
     lineDefault: refColor.coolgray[400],
     lineTyping: refColor.blue[700],
     backgroundEnabled: refColor.gray[0],
-    backgroundDisabled: refColor.gray[100],
+    backgroundDisabled: refColor.coolgray[100],
   },
   icon: {
     default1: refColor.blue[700],
