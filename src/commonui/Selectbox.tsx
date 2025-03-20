@@ -134,6 +134,7 @@ const Styled = {
     display: flex;
     align-items: center;
     vertical-align: middle;
+    gap: ${sysNumber.button.gap.gap_4};
     padding: 8px;
     transition: 0.1s;
     background-color: ${sysColor.button.lined.background.default};
@@ -161,6 +162,11 @@ const Styled = {
     padding: ${sysNumber.inputbox.padding.padding_8};
     padding-left: ${sysNumber.inputbox.padding.padding_12};
     color: ${sysColor.button.lined.text.default};
+    border-radius: ${sysNumber.button.radius.radius_8};
+
+    &:hover {
+      background-color: ${sysColor.button.lined.background.hovered};
+    }
   `,
   IconWrapper: styled.span<{ isOpen: boolean }>`
     position: absolute;
