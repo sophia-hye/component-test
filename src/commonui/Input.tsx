@@ -18,6 +18,7 @@ const Input = styled.input`
 
   /* text color */
   color: ${inputbox.textTyping};
+  caret-color: ${inputbox.lineTyping};
   &::placeholder {
     color: ${inputbox.textHinting};
   }
