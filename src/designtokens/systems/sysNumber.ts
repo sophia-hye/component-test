@@ -1,6 +1,19 @@
 import { refNumber } from '../references/refNumber';
 
 export const sysNumber = {
+  common: {
+    padding: {
+      padding_4: refNumber.px[4],
+      padding_8: refNumber.px[8],
+      padding_12: refNumber.px[12],
+      padding_16: refNumber.px[16],
+    },
+    radius: {
+      radius_4: refNumber.px[4],
+      radius_8: refNumber.px[8],
+      radius_16: refNumber.px[16],
+    },
+  },
   table: {
     height: { checkbox: refNumber.px[32] },
     width: {
